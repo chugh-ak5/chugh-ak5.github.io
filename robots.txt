@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://showrojeetchugh.com/sitemap.xml
+Sitemap: https://chugh-ak5.github.io/sitemap.xml

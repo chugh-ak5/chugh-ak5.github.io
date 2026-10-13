@@ -34,29 +34,43 @@ Tokens live at the top of `assets/css/site.css`.
 
 ## Deploy
 
-### Preview host (current, free)
+### Production: GitHub Pages (free, permanent)
+Published from `github.com/chugh-ak5/chugh-ak5.github.io` (public repo) as a **user site**:
+
+```
+git remote add origin git@github.com:chugh-ak5/chugh-ak5.github.io.git
+git push -u origin main
+```
+
+Then in the repo: **Settings → Pages → Source: Deploy from a branch → main / (root)**.
+Live at <https://chugh-ak5.github.io/> — free HTTPS, no card, no bandwidth billing.
+
+Notes for this host:
+- No `CNAME` file (that is only for a custom domain). `.nojekyll` is present so Pages serves
+  the files verbatim without Jekyll processing.
+- Serves from the repository root, so all relative links work unchanged.
+
+### Moving to a real domain later (one command)
+```sh
+./scripts/set-base.sh showrojeetchugh.com     # rewrites canonicals, OG, sitemap, robots, contact links
+git add -A && git commit -m "Point site at showrojeetchugh.com" && git push
+```
+Then add `showrojeetchugh.com` under Settings → Pages → Custom domain (Cloudflare Registrar,
+at cost ~$10.26/yr) and point the DNS at GitHub Pages. Nothing here is wasted: the free URL keeps
+working alongside the domain.
+
+### Preview host (free, ephemeral — used before GitHub Pages existed)
 Served from the Oracle always-free ARM box as a systemd unit:
 
 ```sh
-# unit: /etc/systemd/system/showrojeetchugh-site.service  -> python3 -m http.server on 127.0.0.1:8099
-rsync -a --delete --exclude CNAME ./ a1:/home/ubuntu/sites/showrojeetchugh.com/
+# unit: /etc/systemd/system/showrojeetchugh-site.service -> python3 -m http.server on 127.0.0.1:8099
+rsync -a --delete --exclude CNAME --exclude .git ./ a1:/home/ubuntu/sites/showrojeetchugh.com/
 ssh a1 'sudo systemctl restart showrojeetchugh-site.service'
 ```
 
-Public access is provided by a Cloudflare **quick tunnel** (no account, free):
-`cloudflared tunnel --url http://127.0.0.1:8099`.
-
-**Caveat:** a quick-tunnel hostname is random and changes on every restart. It is a preview,
-not the production URL.
-
-### Production target (free + a domain)
-Cloudflare Pages: point it at this directory (or a GitHub repo mirror), add
-`showrojeetchugh.com` as a custom domain. Free plan = unlimited bandwidth, 500 builds/month,
-automatic TLS. Domain from Cloudflare Registrar at cost (~$10.46/yr for .com) so renewal equals
-registration.
-
-GitHub Pages is the fallback: push these files to a public repo and enable Pages; the `CNAME`
-file already contains the apex domain.
+Public access is a Cloudflare **quick tunnel** (no account, free):
+`cloudflared tunnel --url http://127.0.0.1:8099`. **Caveat:** a quick-tunnel hostname is random and
+changes on every restart — preview only, never the address you hand out.
 
 ## Editing notes
 
