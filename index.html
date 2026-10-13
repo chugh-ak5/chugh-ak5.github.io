@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=2.2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -82,7 +82,7 @@
 
 <header class="topbar">
   <div class="shell topbar__in">
-    <a class="mark" href="index.html"><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
+    <a class="mark" href="index.html"><span class="mark__badge">SC</span><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" data-open="false" aria-label="Primary">
       <a href="index.html" aria-current="page">Index</a>
@@ -101,8 +101,12 @@
   <section class="hero shell">
     <div class="hero__grid">
       <div>
+        <div class="hero-badge" data-reveal="0">
+          <span class="badge-dot"></span>
+          <span>Live Desk · Proprietary Trading · Risk Surveillance</span>
+        </div>
         <p class="eyebrow" data-reveal="0"><em>01 / Index</em> Proprietary Trading · Treasury · Risk</p>
-        <h1 style="margin-top:22px">
+        <h1 style="margin-top:20px">
           <span class="ln" data-reveal="1">Showrojeet</span>
           <span class="ln ln--2" data-reveal="2">Chugh</span>
         </h1>
@@ -117,6 +121,24 @@
           <span>Chennai, India</span>
           <span>Remote / relocation open</span>
           <span>EN · HI · TA · FR</span>
+        </div>
+        <div class="desk-stats" data-reveal="6">
+          <div class="stat-item">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Years on Desks</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">50+</span>
+            <span class="stat-label">Pairs Monitored</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">12+</span>
+            <span class="stat-label">Fiat Rails</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">0</span>
+            <span class="stat-label">Drawdown Breaches</span>
+          </div>
         </div>
       </div>
 
@@ -163,65 +185,83 @@
       </div>
     </div>
 
-    <ol class="index-list" style="margin-top:clamp(28px,4vw,44px)">
+    <ol class="index-list">
       <li>
         <a href="resume.html" data-reveal="0">
           <span class="num">01</span>
           <span>
-            <span class="ttl">Résumé</span>
+            <span class="ttl-wrap">
+              <span class="ttl">Résumé</span>
+              <span class="tag">CV &amp; Track Record</span>
+            </span>
             <span class="dsc">Six years across prop trading, exchange liquidity and investment analysis. Full history, education, certifications — and a print-ready PDF.</span>
           </span>
-          <span class="go">Read →</span>
+          <span class="go">Read <span>→</span></span>
         </a>
       </li>
       <li>
         <a href="markets.html" data-reveal="1">
           <span class="num">02</span>
           <span>
-            <span class="ttl">Markets &amp; Machines</span>
+            <span class="ttl-wrap">
+              <span class="ttl">Markets &amp; Machines</span>
+              <span class="tag">Method &amp; Telemetry</span>
+            </span>
             <span class="dsc">How I trade, the risk rules I refuse to break, and the Python telemetry that turns order-book noise into decisions.</span>
           </span>
-          <span class="go">Read →</span>
+          <span class="go">Read <span>→</span></span>
         </a>
       </li>
       <li>
         <a href="projects.html" data-reveal="2">
           <span class="num">03</span>
           <span>
-            <span class="ttl">Projects</span>
+            <span class="ttl-wrap">
+              <span class="ttl">Projects</span>
+              <span class="tag">Solana &amp; Desk Tools</span>
+            </span>
             <span class="dsc">Live builds and open-source work tied to my GitHub — a Solana liquidation-defense engine, backtest infrastructure, and desk tooling.</span>
           </span>
-          <span class="go">Read →</span>
+          <span class="go">Read <span>→</span></span>
         </a>
       </li>
       <li>
         <a href="systems.html" data-reveal="3">
           <span class="num">04</span>
           <span>
-            <span class="ttl">Systems &amp; Security</span>
+            <span class="ttl-wrap">
+              <span class="ttl">Systems &amp; Security</span>
+              <span class="tag">Linux &amp; Hardening</span>
+            </span>
             <span class="dsc">Linux as a daily driver, hardening headless servers, cloud infrastructure on AWS, GCP and Oracle — and where security stops being a checkbox.</span>
           </span>
-          <span class="go">Read →</span>
+          <span class="go">Read <span>→</span></span>
         </a>
       </li>
       <li>
         <a href="digital-assets.html" data-reveal="4">
           <span class="num">05</span>
           <span>
-            <span class="ttl">Digital Assets</span>
+            <span class="ttl-wrap">
+              <span class="ttl">Digital Assets</span>
+              <span class="tag">24/7 Venues &amp; Rails</span>
+            </span>
             <span class="dsc">Twenty-four-hour exchange liquidity, stablecoin flows, fiat routing rails — and on-chain risk modelled in code.</span>
           </span>
-          <span class="go">Read →</span>
+          <span class="go">Read <span>→</span></span>
         </a>
       </li>
       <li>
         <a href="contact.html" data-reveal="5">
           <span class="num">06</span>
           <span>
-            <span class="ttl">Contact</span>
+            <span class="ttl-wrap">
+              <span class="ttl">Contact</span>
+              <span class="tag">EMEA &amp; Remote</span>
+            </span>
             <span class="dsc">Open to proprietary desks, treasury and risk mandates across EMEA and remote. Visa sponsorship required outside India.</span>
           </span>
-          <span class="go">Read →</span>
+          <span class="go">Read <span>→</span></span>
         </a>
       </li>
     </ol>
@@ -316,6 +356,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js" defer></script>
+<script src="assets/js/site.js?v=2.2" defer></script>
 </body>
 </html>

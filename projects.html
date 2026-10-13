@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=2.2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,7 +47,7 @@
 
 <header class="topbar">
   <div class="shell topbar__in">
-    <a class="mark" href="index.html"><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
+    <a class="mark" href="index.html"><span class="mark__badge">SC</span><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" data-open="false" aria-label="Primary">
       <a href="index.html">Index</a>
@@ -109,6 +109,18 @@
             <h3>Alerts &amp; execution routing</h3>
             <p>Alert dispatch with cooldown suppression to Telegram and webhooks, and Jito MEV bundle routing for unwind transactions that need to land atomically.</p>
           </div>
+        <div class="terminal-card" data-reveal="2">
+          <div class="terminal-card__bar">
+            <span class="term-dots"><i></i><i></i><i></i></span>
+            <span class="term-title">kamino-sentinel · live rpc telemetry · solana mainnet-beta</span>
+            <span class="term-status">ACTIVE</span>
+          </div>
+          <pre class="terminal-card__code"><code><span class="t-dim">[14:22:04]</span> <span class="t-gold">KAMINO LENDING TELEMETRY</span> · Main Market (7u3...KLend)
+<span class="t-dim">[14:22:04]</span> Reserves: <span class="t-jade">58 active</span> | RPC Latency: <span class="t-jade">184ms</span> | Feeds: Jupiter v6
+<span class="t-dim">[14:22:05]</span> Obligation: 4xK9...2mP | Health Factor: <span class="t-gold">1.418</span> (Safe &gt; 1.100)
+<span class="t-dim">[14:22:05]</span> Collateral: $248,500 (SOL/JitoSOL) | Borrow: $142,300 (USDC)
+<span class="t-dim">[14:22:05]</span> Flash Unwind Plan: Armed (Atomic Jito Bundle via MEV tip routing)
+<span class="t-dim">[14:22:06]</span> Test Suite: <span class="t-jade">51 / 51 passed (100%)</span> · 0 liquidation breaches</code></pre>
         </div>
 
         <div class="tbl-wrap" style="margin-top:clamp(26px,4vw,40px)" tabindex="0" role="region" aria-label="Kamino Sentinel specification facts">

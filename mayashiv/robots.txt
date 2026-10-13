@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chugh-ak5.github.io/mayashiv/sitemap.xml
