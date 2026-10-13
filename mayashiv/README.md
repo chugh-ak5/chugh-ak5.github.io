@@ -14,6 +14,8 @@ give a child.
 | `index.html` | Home — profile, the principle, entry index, what the work covers |
 | `about.html` | The Approach — Maya and Shiv explained, and what it looks like on a Monday morning |
 | `experience.html` | Full CV: nine roles with dates, education, competencies, languages, PDF download |
+| `counselling.html` | **Bookable service** — academic/career counselling sessions, online, by appointment |
+| `astrology.html` | **Bookable service** — jyotish consultations, online, by appointment, with explicit limits |
 | `arts.html` | Arts & Culture — theatre direction, elocution, classical music, service, exchange |
 | `contact.html` | Contact, availability, what she is open to |
 | `404.html` | Not-found page (uses a `<base>` tag so it works at any depth) |
@@ -37,12 +39,19 @@ All biographical content is taken from her own CV
 (`/home/chugh/Downloads/mom_docx/Sudeshna_Chatterjee_Academic_Director_CV.pdf`).
 Two categories of copy are **drafted by the agent, not by her**, and need her approval:
 
-1. The Maya/Shiv framing on `index.html` and `about.html`.
-2. The voice/phrasing of the "what the work covers" section and the pull quotes.
+1. The Maya/Shiv framing on `index.html`, `about.html` and `astrology.html`.
+2. The voice/phrasing of the "what the work covers" section, the session pages, and the pull quotes.
 
-**Privacy decisions applied:** her mobile number and street address are NOT published; the site
-states "available on request" and gives city/corridor only. Her email `suds20@gmail.com` IS
-published, matching her CV. Change either if she prefers.
+**Astrology credentials are deliberately absent.** The site offers astrology consultations but
+states no qualification, lineage, style (Parashari / KP / Nadi) or years of practice, because none
+was provided and inventing one on a public site is not an option. Supply the real details and they
+should go in the hero and the "How it works" section of `astrology.html`.
+
+**Privacy:** her mobile number `+91 90073 57198` and email `suds20@gmail.com` are both published,
+at the family's explicit instruction (phone was originally withheld; it is now in every footer, both
+service pages and the contact page). Her building/street address is still withheld — the site says
+"Kelambakkam / Padur, OMR corridor, Chennai 603103". Expect marketing calls now that the number is
+public; a second SIM or WhatsApp Business number is the usual remedy.
 
 **Photo:** `profile_photo.jpg` in the CV folder is only 357×247 px and dim — too low-resolution for
 a hero portrait. The hero is typographic. If she supplies a daylight photo, crop to 4:5 and add a
