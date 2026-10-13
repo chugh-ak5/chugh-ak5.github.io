@@ -1,0 +1,20 @@
+{
+  "name": "Showrojeet Chugh — Proprietary Trader, Liquidity & Risk",
+  "short_name": "Showrojeet",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0A0B0D",
+  "theme_color": "#0A0B0D",
+  "icons": [
+    {
+      "src": "assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

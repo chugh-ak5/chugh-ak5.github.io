@@ -6,14 +6,41 @@
 <title>Projects — Showrojeet Chugh</title>
 <meta name="description" content="Live builds and open-source work: Kamino Sentinel — a Solana lending risk and liquidation-defense engine in Python — plus futures backtesting infrastructure, desk tooling and market-data utilities.">
 <link rel="canonical" href="https://chugh-ak5.github.io/projects.html">
+<meta name="theme-color" content="#0A0B0D">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Projects — Showrojeet Chugh">
 <meta property="og:description" content="A Solana liquidation-defense engine, backtest infrastructure and desk tooling. Code, tests and links to GitHub.">
 <meta property="og:url" content="https://chugh-ak5.github.io/projects.html">
+<meta property="og:image" content="https://chugh-ak5.github.io/assets/img/og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Projects — Showrojeet Chugh">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projects — Showrojeet Chugh">
+<meta name="twitter:description" content="A Solana liquidation-defense engine, backtest infrastructure and desk tooling. Code, tests and links to GitHub.">
+<meta name="twitter:image" content="https://chugh-ak5.github.io/assets/img/og-preview.png">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Projects — Showrojeet Chugh",
+  "description": "Live builds and open-source projects by Showrojeet Chugh, including Kamino Sentinel and quantitative trading infrastructure.",
+  "url": "https://chugh-ak5.github.io/projects.html",
+  "author": {
+    "@type": "Person",
+    "name": "Showrojeet Chugh",
+    "url": "https://chugh-ak5.github.io/"
+  }
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -84,7 +111,7 @@
           </div>
         </div>
 
-        <div style="margin-top:clamp(26px,4vw,40px);overflow-x:auto">
+        <div class="tbl-wrap" style="margin-top:clamp(26px,4vw,40px)" tabindex="0" role="region" aria-label="Kamino Sentinel specification facts">
           <table class="tbl" data-reveal="3">
             <thead><tr><th>Fact</th><th>Detail</th></tr></thead>
             <tbody>
@@ -159,8 +186,15 @@
           research — useful to anyone building a quantitative workflow in Python.
         </p>
 
-        <div style="margin-top:clamp(24px,3.5vw,36px)">
-          <div class="repo" data-reveal="2">
+        <div class="filter-pills" role="tablist" aria-label="Filter repositories">
+          <button type="button" class="filter-pill is-active" data-cat="all">All (7)</button>
+          <button type="button" class="filter-pill" data-cat="original">Original Builds (3)</button>
+          <button type="button" class="filter-pill" data-cat="quant">Trading &amp; Quants (5)</button>
+          <button type="button" class="filter-pill" data-cat="infra">Infra &amp; Security (2)</button>
+        </div>
+
+        <div style="margin-top:clamp(20px,3vw,30px)">
+          <div class="repo" data-reveal="2" data-category="original quant">
             <div>
               <p class="repo__name"><a href="https://github.com/chugh-ak5/kamino-sentinel" rel="noopener" target="_blank">kamino-sentinel ↗</a></p>
               <p class="repo__desc">Solana lending risk telemetry and liquidation-defense engine. See the flagship write-up above.</p>
@@ -169,7 +203,7 @@
             <p class="repo__facts"><span>Python</span><span>MIT</span><span>Active — updated Oct 2026</span></p>
           </div>
 
-          <div class="repo" data-reveal="3">
+          <div class="repo" data-reveal="3" data-category="original quant">
             <div>
               <p class="repo__name"><a href="https://github.com/chugh-ak5/JPMC_Virtual_Internship_Tech_Task_2020" rel="noopener" target="_blank">JPMC_Virtual_Internship_Tech_Task_2020 ↗</a></p>
               <p class="repo__desc">Completed JPMorgan Chase software-engineering virtual programme: feed-processing and data-visualisation tasks built with Python and the Perspective/Dash stack.</p>
@@ -178,7 +212,7 @@
             <p class="repo__facts"><span>Python</span><span>Market data feeds</span><span>Visualisation</span></p>
           </div>
 
-          <div class="repo" data-reveal="4">
+          <div class="repo" data-reveal="4" data-category="original quant">
             <div>
               <p class="repo__name"><a href="https://github.com/chugh-ak5/my-repository101" rel="noopener" target="_blank">my-repository101 ↗</a></p>
               <p class="repo__desc">Early notebook work — the scratchpad where I learned to put market data through pandas and numpy before it became a job requirement.</p>
@@ -187,7 +221,7 @@
             <p class="repo__facts"><span>Jupyter</span><span>Data exploration</span></p>
           </div>
 
-          <div class="repo" data-reveal="5">
+          <div class="repo" data-reveal="5" data-category="quant">
             <div>
               <p class="repo__name"><a href="https://github.com/chugh-ak5/python-tradingview-ta" rel="noopener" target="_blank">python-tradingview-ta ↗</a> · <a href="https://github.com/chugh-ak5/TradingView-data-scraper" rel="noopener" target="_blank">TradingView-data-scraper ↗</a></p>
               <p class="repo__desc">Technical-analysis aggregation and chart-data extraction. Used as inputs to pattern research — never as a signal generator on their own.</p>
@@ -196,7 +230,7 @@
             <p class="repo__facts"><span>Python</span><span>Indicator data</span><span>Research inputs</span></p>
           </div>
 
-          <div class="repo" data-reveal="6">
+          <div class="repo" data-reveal="6" data-category="quant">
             <div>
               <p class="repo__name"><a href="https://github.com/chugh-ak5/quant-trading" rel="noopener" target="_blank">quant-trading ↗</a> · <a href="https://github.com/chugh-ak5/candlestick-patterns" rel="noopener" target="_blank">candlestick-patterns ↗</a> · <a href="https://github.com/chugh-ak5/ta-lib" rel="noopener" target="_blank">ta-lib ↗</a></p>
               <p class="repo__desc">Strategy implementations and pattern-detection utilities I keep close for prototyping ideas in Python before they reach a proper backtest.</p>
@@ -205,7 +239,7 @@
             <p class="repo__facts"><span>Strategy prototypes</span><span>Pattern detection</span><span>Indicators</span></p>
           </div>
 
-          <div class="repo" data-reveal="7">
+          <div class="repo" data-reveal="7" data-category="quant infra">
             <div>
               <p class="repo__name"><a href="https://github.com/chugh-ak5/freqtrade" rel="noopener" target="_blank">freqtrade ↗</a> · <a href="https://github.com/chugh-ak5/python-kucoin" rel="noopener" target="_blank">python-kucoin ↗</a></p>
               <p class="repo__desc">Crypto trading-bot framework and exchange API bindings — reference material for order handling, exchange integration and the failure modes of automated execution.</p>
@@ -214,7 +248,7 @@
             <p class="repo__facts"><span>Exchange APIs</span><span>Order handling</span><span>Automation</span></p>
           </div>
 
-          <div class="repo" data-reveal="8">
+          <div class="repo" data-reveal="8" data-category="infra">
             <div>
               <p class="repo__name"><a href="https://github.com/chugh-ak5/kali-linux-cheatsheet" rel="noopener" target="_blank">kali-linux-cheatsheet ↗</a></p>
               <p class="repo__desc">Pentest command reference kept in the toolbox for lab work and system audits — see the systems page for how I actually use it.</p>
@@ -280,7 +314,8 @@
     </p>
     <p class="foot__meta" style="text-align:right">
       <a href="index.html">Index</a> · <a href="markets.html">Markets</a> ·
-      <a href="systems.html">Systems</a> · <a href="contact.html">Contact</a>
+      <a href="systems.html">Systems</a> · <a href="contact.html">Contact</a> ·
+      <a href="#" id="openShortcuts" title="Keyboard shortcuts">[?] Keys</a>
     </p>
   </div>
 </footer>

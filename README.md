@@ -17,8 +17,9 @@ liquidity & risk. Hand-written HTML/CSS/JS, no build step, no framework, no trac
 | `404.html` | Not-found page |
 
 Supporting: `assets/css/site.css` (single stylesheet, tokens + print rules),
-`assets/js/site.js` (mobile nav, scroll reveal, footer year), `assets/pdf/` (résumé PDF),
-`robots.txt`, `sitemap.xml`, `CNAME` (GitHub Pages custom domain).
+`assets/js/site.js` (mobile nav, scroll reveal, reading progress bar, desk session clock, copy-to-clipboard, repo filter, keyboard shortcuts), `assets/pdf/` (résumé PDF),
+`assets/img/` (`favicon.svg`, `apple-touch-icon.png`, `og-preview.png`),
+`site.webmanifest`, `robots.txt`, `sitemap.xml`.
 
 ## Design system
 
