@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markets &amp; Machines — Showrojeet Chugh</title>
+<meta name="description" content="How I trade and what I automate: order-book imbalance, dynamic position sizing, volatility filters, drawdown discipline, and the Python/SQL/InfluxDB telemetry stack behind a proprietary futures desk.">
+<link rel="canonical" href="https://showrojeetchugh.com/markets.html">
+<meta property="og:title" content="Markets &amp; Machines — Showrojeet Chugh">
+<meta property="og:description" content="Trading process, risk rules and the automation stack: Python, SQL, InfluxDB and Grafana on a proprietary futures desk.">
+<meta property="og:url" content="https://showrojeetchugh.com/markets.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <a class="mark" href="index.html"><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" data-open="false" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="resume.html">Résumé</a>
+      <a href="markets.html" aria-current="page">Markets</a>
+      <a href="projects.html">Projects</a>
+      <a href="systems.html">Systems</a>
+      <a href="digital-assets.html">Digital Assets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="phead shell">
+    <div class="phead__grid">
+      <p class="eyebrow"><em>02</em> Markets</p>
+      <div>
+        <h1 data-reveal="0">Markets &amp; Machines</h1>
+        <p class="below" data-reveal="1">
+          Trading is a risk-allocation exercise that happens to be executed through charts.
+          This page is how I run that exercise: what I read on a book, what I refuse to trade
+          without, and the code that keeps me accountable to both.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>01</em> Method</p>
+      <div class="cols-2">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Read the book, then size the position.</h2>
+          <p class="muted">
+            My frames are deliberately narrow. I look for short-term structural momentum —
+            where resting liquidity is thin, where participants are being forced to transact,
+            where a level is defended or abandoned. Order-book imbalance, depth attrition and
+            spread behaviour tell me more about the next hour than any indicator will.
+          </p>
+          <p class="muted">
+            Execution across FX, indices, commodities and crypto derivatives is a single discipline
+            with different tick sizes. The instrument changes; the process shouldn't.
+          </p>
+        </div>
+        <ul class="rule-list" data-reveal="1">
+          <li>
+            <span class="k">Frame</span>
+            <span class="v"><strong>Order-book imbalance surveillance</strong> — depth and aggressor flow at the touch, tracked continuously rather than sampled at a bar close.</span>
+          </li>
+          <li>
+            <span class="k">Filter</span>
+            <span class="v"><strong>Volatility regime</strong> — position size scales down as realised volatility expands. Never the other way round.</span>
+          </li>
+          <li>
+            <span class="k">Risk</span>
+            <span class="v"><strong>Hard drawdown ceilings</strong> — daily loss limits and trailing risk parameters are constraints, not suggestions. Capital preservation outranks any single thesis.</span>
+          </li>
+          <li>
+            <span class="k">Review</span>
+            <span class="v"><strong>Daily attribution</strong> — P&amp;L decomposed by instrument, session and thesis, with blotter reconciliation behind it. A strategy I can't explain next morning doesn't get repeated.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>02</em> Hedging</p>
+      <div class="cols-2">
+        <div class="stack" data-reveal="0">
+          <h3 class="sub">Delta-neutral by construction, not by hope</h3>
+          <p class="muted">
+            On the desk I ran structured hedges against overnight gap risk: monitor live quote feeds
+            and spread markups, then offset exposure with delta-neutral orders rather than simply
+            reducing size and paying away the edge. The same instinct applies to crypto books, where
+            the risk never sleeps because the venue doesn't.
+          </p>
+        </div>
+        <ul class="rule-list" data-reveal="1">
+          <li>
+            <span class="k">Gap risk</span>
+            <span class="v">Overnight exposure hedged into the close using liquid offsets; the cost of the hedge is budgeted in advance, not negotiated at the open.</span>
+          </li>
+          <li>
+            <span class="k">Spread integrity</span>
+            <span class="v">Quote-feed and markup monitoring so a widening spread is treated as a signal about liquidity, not as an invitation to trade.</span>
+          </li>
+          <li>
+            <span class="k">Fill quality</span>
+            <span class="v">Execution reviewed against venue behaviour and slippage expectations; poor fills are a systems problem as often as a market one.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>03</em> Stack</p>
+      <div data-reveal="0">
+        <h2 class="display">Machines that do the 3 a.m. work.</h2>
+        <p class="lead" style="margin-top:18px">
+          Everything repetitive on a desk is a bug waiting for a market event. My default is to
+          encode it: pull the data, test the assumption, alert the human only when a threshold is
+          breached.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(26px,4vw,40px);overflow-x:auto">
+      <table class="tbl" data-reveal="1">
+        <thead>
+          <tr><th>Layer</th><th>What it does</th><th>Tooling</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ingest</td>
+            <td>Market prices, quote feeds, order-book snapshots and platform throughput pulled on a schedule or streamed continuously.</td>
+            <td>Python · pandas · NumPy · venue REST &amp; WebSocket APIs</td>
+          </tr>
+          <tr>
+            <td>Store</td>
+            <td>Time-series history for liquidity metrics, latency and exposure — queryable months later when a strategy needs a post-mortem.</td>
+            <td>SQL · InfluxDB</td>
+          </tr>
+          <tr>
+            <td>Model</td>
+            <td>Position and exposure maths, risk-adjusted performance (Sharpe, win rate), stress and scenario passes, backtests with realistic costs.</td>
+            <td>Python · SQL · advanced Excel for desk-facing work</td>
+          </tr>
+          <tr>
+            <td>Observe</td>
+            <td>Dashboards for trade flow, liquidity depth, quote latency; threshold alarms routed to the channel a human actually reads.</td>
+            <td>Grafana · InfluxDB · scheduled monitors &amp; alert dispatch</td>
+          </tr>
+          <tr>
+            <td>Reconcile</td>
+            <td>Daily blotter, position and payment reconciliation — automated, exception-first, audit-ready.</td>
+            <td>Python · SQL · cloud-hosted jobs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>04</em> AI &amp; automation</p>
+      <div class="cols-2">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">AI as an operator, not an oracle.</h2>
+          <p class="muted">
+            Language models are genuinely good at the unglamorous middle of a trading workflow:
+            parsing a filing, summarising a research note, drafting the reconciliation report,
+            writing the glue code that connects two APIs. They are not a source of edge, and
+            anyone treating a model's confidence as a probability has confused fluency with
+            calibration.
+          </p>
+          <p class="muted">
+            So I use them where being approximately right is cheap and being slow is expensive —
+            and I keep deterministic code on the paths where a wrong answer costs money.
+          </p>
+        </div>
+        <ul class="rule-list" data-reveal="1">
+          <li>
+            <span class="k">Research</span>
+            <span class="v">Document triage, filings and paper summaries, and code translation for unfamiliar APIs.</span>
+          </li>
+          <li>
+            <span class="k">Engineering</span>
+            <span class="v">Agentic workflows that write, test and iterate on the plumbing code around a strategy — monitored, version-controlled, and never trusted with order routing.</span>
+          </li>
+          <li>
+            <span class="k">Guardrails</span>
+            <span class="v">Every automated action has a dry-run, a cost ceiling and a reversal path. If I can't undo it, it doesn't run unattended.</span>
+          </li>
+          <li>
+            <span class="k">Study</span>
+            <span class="v">Currently completing <em class="gold" style="font-style:normal">Agentic AI and Applications</em> at IIT Madras to keep the engineering honest.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>05</em> Reading list</p>
+      <div data-reveal="0">
+        <p class="muted" style="max-width:66ch">
+          The ideas I keep coming back to are boring ones: risk of ruin before expectancy,
+          transaction costs as a first-class input, and the difference between a strategy that
+          worked and a strategy that works.
+        </p>
+        <ul class="rule-list" style="margin-top:22px">
+          <li><span class="k">Position sizing</span><span class="v">Kelly under uncertainty — and why fractional is almost always the right answer.</span></li>
+          <li><span class="k">Microstructure</span><span class="v">Order-book mechanics, adverse selection, and why the spread is information.</span></li>
+          <li><span class="k">Backtest hygiene</span><span class="v">Look-ahead bias, survivorship, cost realism, and the discipline of an untouched out-of-sample window.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="cta">
+      <div class="cta__grid">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Want the systems behind the strategy?</h2>
+          <p class="muted">The code lives on the projects page; the desk history is in the résumé.</p>
+        </div>
+        <div class="btn-row" data-reveal="1">
+          <a class="btn btn--solid" href="projects.html">Projects</a>
+          <a class="btn" href="resume.html">Résumé</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__grid">
+    <p class="foot__meta">
+      © <span id="year">2026</span> Showrojeet Chugh · Chennai, India<br>
+      Nothing on this page is investment advice.
+    </p>
+    <p class="foot__meta" style="text-align:right">
+      <a href="index.html">Index</a> · <a href="projects.html">Projects</a> ·
+      <a href="systems.html">Systems</a> · <a href="contact.html">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

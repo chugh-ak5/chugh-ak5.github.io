@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Showrojeet Chugh</title>
+<meta name="description" content="Live builds and open-source work: Kamino Sentinel — a Solana lending risk and liquidation-defense engine in Python — plus futures backtesting infrastructure, desk tooling and market-data utilities.">
+<link rel="canonical" href="https://showrojeetchugh.com/projects.html">
+<meta property="og:title" content="Projects — Showrojeet Chugh">
+<meta property="og:description" content="A Solana liquidation-defense engine, backtest infrastructure and desk tooling. Code, tests and links to GitHub.">
+<meta property="og:url" content="https://showrojeetchugh.com/projects.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <a class="mark" href="index.html"><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" data-open="false" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="resume.html">Résumé</a>
+      <a href="markets.html">Markets</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="systems.html">Systems</a>
+      <a href="digital-assets.html">Digital Assets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="phead shell">
+    <div class="phead__grid">
+      <p class="eyebrow"><em>03</em> Projects</p>
+      <div>
+        <h1 data-reveal="0">Things I build<br>when the desk is quiet.</h1>
+        <p class="below" data-reveal="1">
+          My projects start as a specific irritation — a risk I couldn't see, a report I had to
+          assemble by hand, a venue whose numbers I didn't trust. Everything below is real code,
+          with tests where it matters.
+        </p>
+        <div class="btn-row" style="margin-top:24px" data-reveal="2">
+          <a class="btn" href="https://github.com/chugh-ak5" rel="noopener" target="_blank">github.com/chugh-ak5 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>01</em> Flagship</p>
+      <div>
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Kamino Sentinel</h2>
+          <p class="lead">
+            High-frequency monitoring, risk telemetry and a liquidation-defense engine for
+            <span class="gold">Kamino Lending on Solana</span> — built for the borrower who would
+            rather see the health factor move than discover it after the liquidation.
+          </p>
+        </div>
+
+        <div class="cols-3" style="margin-top:clamp(26px,4vw,40px)">
+          <div class="panel" data-reveal="0">
+            <span class="panel__label">Observe</span>
+            <h3>Reserve &amp; obligation telemetry</h3>
+            <p>Continuous tracking of on-chain reserve utilisation, interest-rate curves and user obligation health factors, parsed straight from the lending program's accounts.</p>
+          </div>
+          <div class="panel" data-reveal="1">
+            <span class="panel__label">Model</span>
+            <h3>Stress shocks &amp; unwind maths</h3>
+            <p>Liquidation-price calculation and multi-scenario stress matrices, plus atomic flash-unwind planning so a de-leverage path exists before it's needed.</p>
+          </div>
+          <div class="panel" data-reveal="2">
+            <span class="panel__label">Act</span>
+            <h3>Alerts &amp; execution routing</h3>
+            <p>Alert dispatch with cooldown suppression to Telegram and webhooks, and Jito MEV bundle routing for unwind transactions that need to land atomically.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:clamp(26px,4vw,40px);overflow-x:auto">
+          <table class="tbl" data-reveal="3">
+            <thead><tr><th>Fact</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Chain / protocol</td><td>Solana Mainnet-Beta · Kamino Lending (KLend) program accounts, with Jupiter price feeds for valuation</td></tr>
+              <tr><td>Verified</td><td>Live discovery confirmed against 58 on-chain reserve accounts via RPC; main market and program IDs pinned in the repo</td></tr>
+              <tr><td>Test suite</td><td>51 / 51 unit tests passing — liquidation-defense maths, flash-unwind equations, RPC failover, alert throttling, obligation parsing</td></tr>
+              <tr><td>Interfaces</td><td>Interactive terminal (live market table, position inspector, auto-deleverage planner), Python package, Dockerfile and compose for deployment</td></tr>
+              <tr><td>Language</td><td>Python 3.10+ · CI pipeline · MIT licensed</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="btn-row" style="margin-top:26px" data-reveal="4">
+          <a class="btn btn--solid" href="https://github.com/chugh-ak5/kamino-sentinel" rel="noopener" target="_blank">Repository ↗</a>
+          <a class="btn" href="digital-assets.html">Why on-chain risk →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>02</em> Desk tooling</p>
+      <div>
+        <h2 class="display" data-reveal="0">Built for the desk, not the résumé.</h2>
+        <p class="lead" style="margin-top:16px" data-reveal="1">
+          Two of the systems I use most are internal: the strategy research rig and the ops stack
+          that watches my infrastructure. They aren't public, so here is what they do rather than a
+          link that goes nowhere.
+        </p>
+
+        <div style="margin-top:clamp(24px,3.5vw,36px)">
+          <div class="repo" data-reveal="2">
+            <div>
+              <p class="repo__name">strategy-research-rig <span class="muted">/ private</span></p>
+              <p class="repo__desc">
+                Event-driven backtesting framework for index futures. It exists to kill bad ideas
+                cheaply: session-aware fills, commission and slippage modelled per contract,
+                walk-forward splits, and an out-of-sample window that gets touched exactly once.
+                A strategy survives the rig before it ever sees a live account.
+              </p>
+            </div>
+            <span class="repo__tag">Python</span>
+            <p class="repo__facts"><span>Event-driven</span><span>Cost realism</span><span>Walk-forward</span><span>Futures sessions</span></p>
+          </div>
+
+          <div class="repo" data-reveal="3">
+            <div>
+              <p class="repo__name">ops-stack <span class="muted">/ private</span></p>
+              <p class="repo__desc">
+                The alerting and hygiene layer for everything I run: scheduled monitors for market
+                data and price targets, log and disk checks on headless cloud instances, backup
+                verification, and a single dispatch path to Telegram so an alert can't drown in
+                email. Built to run unattended on free-tier infrastructure.
+              </p>
+            </div>
+            <span class="repo__tag">Python · systemd</span>
+            <p class="repo__facts"><span>Scheduled jobs</span><span>Alert routing</span><span>Health checks</span><span>Free-tier infra</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>03</em> Public repositories</p>
+      <div>
+        <h2 class="display" data-reveal="0">Open-source work and the tools I actually use.</h2>
+        <p class="lead" style="margin-top:16px" data-reveal="1">
+          Original repositories first, then the libraries and data sources that sit underneath my
+          research — useful to anyone building a quantitative workflow in Python.
+        </p>
+
+        <div style="margin-top:clamp(24px,3.5vw,36px)">
+          <div class="repo" data-reveal="2">
+            <div>
+              <p class="repo__name"><a href="https://github.com/chugh-ak5/kamino-sentinel" rel="noopener" target="_blank">kamino-sentinel ↗</a></p>
+              <p class="repo__desc">Solana lending risk telemetry and liquidation-defense engine. See the flagship write-up above.</p>
+            </div>
+            <span class="repo__tag repo__tag--own">Original</span>
+            <p class="repo__facts"><span>Python</span><span>MIT</span><span>Active — updated Oct 2026</span></p>
+          </div>
+
+          <div class="repo" data-reveal="3">
+            <div>
+              <p class="repo__name"><a href="https://github.com/chugh-ak5/JPMC_Virtual_Internship_Tech_Task_2020" rel="noopener" target="_blank">JPMC_Virtual_Internship_Tech_Task_2020 ↗</a></p>
+              <p class="repo__desc">Completed JPMorgan Chase software-engineering virtual programme: feed-processing and data-visualisation tasks built with Python and the Perspective/Dash stack.</p>
+            </div>
+            <span class="repo__tag repo__tag--own">Original</span>
+            <p class="repo__facts"><span>Python</span><span>Market data feeds</span><span>Visualisation</span></p>
+          </div>
+
+          <div class="repo" data-reveal="4">
+            <div>
+              <p class="repo__name"><a href="https://github.com/chugh-ak5/my-repository101" rel="noopener" target="_blank">my-repository101 ↗</a></p>
+              <p class="repo__desc">Early notebook work — the scratchpad where I learned to put market data through pandas and numpy before it became a job requirement.</p>
+            </div>
+            <span class="repo__tag repo__tag--own">Original</span>
+            <p class="repo__facts"><span>Jupyter</span><span>Data exploration</span></p>
+          </div>
+
+          <div class="repo" data-reveal="5">
+            <div>
+              <p class="repo__name"><a href="https://github.com/chugh-ak5/python-tradingview-ta" rel="noopener" target="_blank">python-tradingview-ta ↗</a> · <a href="https://github.com/chugh-ak5/TradingView-data-scraper" rel="noopener" target="_blank">TradingView-data-scraper ↗</a></p>
+              <p class="repo__desc">Technical-analysis aggregation and chart-data extraction. Used as inputs to pattern research — never as a signal generator on their own.</p>
+            </div>
+            <span class="repo__tag">Upstream</span>
+            <p class="repo__facts"><span>Python</span><span>Indicator data</span><span>Research inputs</span></p>
+          </div>
+
+          <div class="repo" data-reveal="6">
+            <div>
+              <p class="repo__name"><a href="https://github.com/chugh-ak5/quant-trading" rel="noopener" target="_blank">quant-trading ↗</a> · <a href="https://github.com/chugh-ak5/candlestick-patterns" rel="noopener" target="_blank">candlestick-patterns ↗</a> · <a href="https://github.com/chugh-ak5/ta-lib" rel="noopener" target="_blank">ta-lib ↗</a></p>
+              <p class="repo__desc">Strategy implementations and pattern-detection utilities I keep close for prototyping ideas in Python before they reach a proper backtest.</p>
+            </div>
+            <span class="repo__tag">Upstream</span>
+            <p class="repo__facts"><span>Strategy prototypes</span><span>Pattern detection</span><span>Indicators</span></p>
+          </div>
+
+          <div class="repo" data-reveal="7">
+            <div>
+              <p class="repo__name"><a href="https://github.com/chugh-ak5/freqtrade" rel="noopener" target="_blank">freqtrade ↗</a> · <a href="https://github.com/chugh-ak5/python-kucoin" rel="noopener" target="_blank">python-kucoin ↗</a></p>
+              <p class="repo__desc">Crypto trading-bot framework and exchange API bindings — reference material for order handling, exchange integration and the failure modes of automated execution.</p>
+            </div>
+            <span class="repo__tag">Upstream</span>
+            <p class="repo__facts"><span>Exchange APIs</span><span>Order handling</span><span>Automation</span></p>
+          </div>
+
+          <div class="repo" data-reveal="8">
+            <div>
+              <p class="repo__name"><a href="https://github.com/chugh-ak5/kali-linux-cheatsheet" rel="noopener" target="_blank">kali-linux-cheatsheet ↗</a></p>
+              <p class="repo__desc">Pentest command reference kept in the toolbox for lab work and system audits — see the systems page for how I actually use it.</p>
+            </div>
+            <span class="repo__tag">Upstream</span>
+            <p class="repo__facts"><span>Security</span><span>Linux</span><span>Lab reference</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>04</em> How I work</p>
+      <div class="cols-2">
+        <ul class="rule-list" data-reveal="0">
+          <li>
+            <span class="k">Test the maths, not the vibes</span>
+            <span class="v">Liquidation, unwind and P&amp;L arithmetic gets unit tests before it gets a live RPC endpoint.</span>
+          </li>
+          <li>
+            <span class="k">Fail loudly, then quietly</span>
+            <span class="v">RPC failover, retries with backoff, and alert throttling so a flapping feed doesn't train anyone to ignore the channel.</span>
+          </li>
+        </ul>
+        <ul class="rule-list" data-reveal="1">
+          <li>
+            <span class="k">Ship it runnable</span>
+            <span class="v">Dockerfile, compose, environment template and CI in the repo — a project nobody else can start in five minutes isn't finished.</span>
+          </li>
+          <li>
+            <span class="k">Read the source, always</span>
+            <span class="v">Protocol behaviour comes from the program accounts and the docs, not from a blog post about them.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="cta">
+      <div class="cta__grid">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Have a desk problem worth automating?</h2>
+          <p class="muted">Reconciliation, risk telemetry, alerting, backtest infrastructure — that's the work I enjoy most.</p>
+        </div>
+        <div class="btn-row" data-reveal="1">
+          <a class="btn btn--solid" href="https://github.com/chugh-ak5" rel="noopener" target="_blank">GitHub ↗</a>
+          <a class="btn" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__grid">
+    <p class="foot__meta">
+      © <span id="year">2026</span> Showrojeet Chugh · Chennai, India<br>
+      Code samples and repositories: <a href="https://github.com/chugh-ak5" rel="noopener" target="_blank">github.com/chugh-ak5</a>
+    </p>
+    <p class="foot__meta" style="text-align:right">
+      <a href="index.html">Index</a> · <a href="markets.html">Markets</a> ·
+      <a href="systems.html">Systems</a> · <a href="contact.html">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

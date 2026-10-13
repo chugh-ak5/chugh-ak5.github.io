@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Systems &amp; Security — Showrojeet Chugh</title>
+<meta name="description" content="Linux as a daily driver, hardening headless servers, cloud infrastructure on AWS, GCP and Oracle always-free ARM — and why security is an operator's discipline rather than a checklist.">
+<link rel="canonical" href="https://showrojeetchugh.com/systems.html">
+<meta property="og:title" content="Systems &amp; Security — Showrojeet Chugh">
+<meta property="og:description" content="Linux, cloud infrastructure and practical security: hardening, least privilege, secrets discipline and unattended operations.">
+<meta property="og:url" content="https://showrojeetchugh.com/systems.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <a class="mark" href="index.html"><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" data-open="false" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="resume.html">Résumé</a>
+      <a href="markets.html">Markets</a>
+      <a href="projects.html">Projects</a>
+      <a href="systems.html" aria-current="page">Systems</a>
+      <a href="digital-assets.html">Digital Assets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="phead shell">
+    <div class="phead__grid">
+      <p class="eyebrow"><em>04</em> Systems</p>
+      <div>
+        <h1 data-reveal="0">Linux, cloud<br>and the discipline<br>between them.</h1>
+        <p class="below" data-reveal="1">
+          I run things. Trading infrastructure, research jobs, monitors, backups — mostly
+          headless, mostly unattended, on machines I have to be able to reason about at 4 a.m.
+          That's the whole reason security interests me: not as a career in tick-boxing, but as
+          the difference between a system that survives contact with the internet and one that
+          becomes someone else's.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>01</em> Linux</p>
+      <div class="cols-2">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">The terminal is the interface.</h2>
+          <p class="muted">
+            Arch on the workstation, Debian/Ubuntu on servers, systemd for anything that needs to
+            stay up. I'd rather understand ten moving parts than trust a control panel with forty
+            of them — and when something breaks at an awkward hour, the machine I can debug fastest
+            is the one I chose on purpose.
+          </p>
+          <p class="muted">
+            My daily work is text: SSH, tmux, git, logs, dashboards over a terminal. It makes
+            remote work on a French desk and a Chennai desk indistinguishable.
+          </p>
+        </div>
+        <ul class="rule-list" data-reveal="1">
+          <li><span class="k">Workstation</span><span class="v">Arch Linux, rolling, deliberately minimal — no GUI browser in the loop for anything I automate.</span></li>
+          <li><span class="k">Servers</span><span class="v">Debian/Ubuntu LTS, unattended-upgrades, systemd units with restart policies, journald for anything that failed at 03:00.</span></li>
+          <li><span class="k">Process discipline</span><span class="v">Long jobs get scheduled, logged and alerted — not left in a terminal hoping I remember.</span></li>
+          <li><span class="k">Backups</span><span class="v">Snapshot before risky operations, off-box copies, and a restore path that has actually been tested.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>02</em> Security</p>
+      <div>
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Hardening is just operations done properly.</h2>
+          <p class="lead">
+            The failures that cost money are rarely exotic. They're a port nobody needed, a key
+            reused across hosts, a token committed to a repository, or a service running as root
+            because it was faster that afternoon.
+          </p>
+        </div>
+
+        <div style="margin-top:clamp(26px,4vw,40px);overflow-x:auto">
+          <table class="tbl" data-reveal="1">
+            <thead><tr><th>Layer</th><th>Practice</th><th>Why</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Access</td>
+                <td>Key-only SSH, one key per machine, no password authentication, non-root by default</td>
+                <td>A shared key is a shared compromise; per-host keys mean a leak has a blast radius of one.</td>
+              </tr>
+              <tr>
+                <td>Exposure</td>
+                <td>Nothing published unless it must be; private services reached over a mesh VPN or an authenticated tunnel rather than an open port</td>
+                <td>The best-defended service is the one with no listening socket on the public internet.</td>
+              </tr>
+              <tr>
+                <td>Privilege</td>
+                <td>Least privilege for every process, explicit sudo, no root-owned application code</td>
+                <td>Containment is a design choice made before the incident, not during it.</td>
+              </tr>
+              <tr>
+                <td>Secrets</td>
+                <td>Environment files outside version control, rotated on suspicion, never echoed into logs</td>
+                <td>Credential leakage is the most common self-inflicted breach there is.</td>
+              </tr>
+              <tr>
+                <td>Visibility</td>
+                <td>Alerting on failed logins, disk pressure, service restarts and unexpected egress</td>
+                <td>You cannot respond to what you didn't notice — and noticing is a cron job.</td>
+              </tr>
+              <tr>
+                <td>Recoverability</td>
+                <td>Tested restore paths, immutable-ish backups, runbooks for the two failures that actually happen</td>
+                <td>Availability is a security property too; downtime is how a small problem becomes an incident.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cols-2" style="margin-top:clamp(26px,4vw,40px)">
+          <div class="stack" data-reveal="2">
+            <h3 class="sub">Tools and practice</h3>
+            <p class="muted">
+              Kali tooling and a pentest command reference live in my toolbox for lab ranges and
+              self-audits — reconnaissance, service enumeration, and the unglamorous work of
+              knowing what my own machines expose. The value is in the audit habit: scan your own
+              perimeter on a schedule, and treat every surprise as a task, not a scare.
+            </p>
+          </div>
+          <ul class="rule-list" data-reveal="3">
+            <li><span class="k">Recon</span><span class="v">Enumerate your own surface before someone else does — ports, certificates, DNS records, forgotten subdomains.</span></li>
+            <li><span class="k">Lab work</span><span class="v">Deliberately vulnerable ranges and CTF-style exercises for practice, kept strictly off production networks.</span></li>
+            <li><span class="k">Scripting</span><span class="v">Python and shell for anything repetitive: log triage, integrity checks, configuration drift.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>03</em> Cloud</p>
+      <div class="cols-2">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Infrastructure at the price of discipline.</h2>
+          <p class="muted">
+            I have firm opinions about cloud cost, because I've paid for compute I didn't need.
+            A trading monitor, a research job and a dashboard do not require a managed platform —
+            they require a small Linux box, good process hygiene and honest alerting.
+          </p>
+          <p class="muted">
+            Most of what I run today sits on always-free capacity: an ARM instance for
+            scheduled jobs and services, with storage and egress watched deliberately, because
+            "free tier" is an accounting limit, not a personality trait of the provider.
+          </p>
+        </div>
+        <ul class="rule-list" data-reveal="1">
+          <li><span class="k">Platforms</span><span class="v">AWS and GCP for managed services and data work; Oracle Cloud always-free ARM for long-running jobs; Cloudflare in front for DNS, TLS and edge delivery.</span></li>
+          <li><span class="k">Sizing discipline</span><span class="v">Right-size, then resist the upgrade. Swap before you blame RAM; measure before you resize.</span></li>
+          <li><span class="k">Cost hygiene</span><span class="v">Budget alerts set the day a tenancy goes pay-as-you-go, and a monthly review of anything that grew a line item.</span></li>
+          <li><span class="k">Networking</span><span class="v">Mesh VPN for private access between machines, tunnels instead of open ports, DNS over a provider that gives TLS for free.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>04</em> Operating rules</p>
+      <div>
+        <blockquote class="pull" data-reveal="0">
+          Automate it, alert on it, or accept that you own it — those are the three options, and
+          the third one has a way of choosing itself at the worst moment.
+        </blockquote>
+        <ul class="rule-list" style="margin-top:clamp(26px,4vw,40px)">
+          <li data-reveal="1"><span class="k">Rule 01</span><span class="v">A service that isn't monitored isn't running; it's just not failing loudly yet.</span></li>
+          <li data-reveal="2"><span class="k">Rule 02</span><span class="v">Every scheduled job writes a log and a heartbeat, so silence is distinguishable from death.</span></li>
+          <li data-reveal="3"><span class="k">Rule 03</span><span class="v">Test the restore, not the backup. An unverified archive is a rumour.</span></li>
+          <li data-reveal="4"><span class="k">Rule 04</span><span class="v">Cost is a design constraint. If a system needs a bigger instance every quarter, the architecture is the problem.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="cta">
+      <div class="cta__grid">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Ops, infrastructure or security-adjacent work?</h2>
+          <p class="muted">I'm equally at home in a dealing-desk terminal and a Linux one — the overlap is where I'm useful.</p>
+        </div>
+        <div class="btn-row" data-reveal="1">
+          <a class="btn btn--solid" href="contact.html">Contact</a>
+          <a class="btn" href="projects.html">Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__grid">
+    <p class="foot__meta">
+      © <span id="year">2026</span> Showrojeet Chugh · Chennai, India<br>
+      Responsible disclosure welcome — details on the contact page.
+    </p>
+    <p class="foot__meta" style="text-align:right">
+      <a href="index.html">Index</a> · <a href="markets.html">Markets</a> ·
+      <a href="digital-assets.html">Digital Assets</a> · <a href="contact.html">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Assets — Showrojeet Chugh</title>
+<meta name="description" content="Crypto market structure from the desk side: 24/7 exchange liquidity, order-book integrity, stablecoins, fiat routing rails, and on-chain lending risk modelled in Python.">
+<link rel="canonical" href="https://showrojeetchugh.com/digital-assets.html">
+<meta property="og:title" content="Digital Assets — Showrojeet Chugh">
+<meta property="og:description" content="Exchange liquidity, stablecoin flows, fiat rails and on-chain risk telemetry — a desk view of digital asset markets.">
+<meta property="og:url" content="https://showrojeetchugh.com/digital-assets.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <a class="mark" href="index.html"><b>Showrojeet Chugh</b><span>Chennai · IN</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" data-open="false" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="resume.html">Résumé</a>
+      <a href="markets.html">Markets</a>
+      <a href="projects.html">Projects</a>
+      <a href="systems.html">Systems</a>
+      <a href="digital-assets.html" aria-current="page">Digital Assets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="phead shell">
+    <div class="phead__grid">
+      <p class="eyebrow"><em>05</em> Digital assets</p>
+      <div>
+        <h1 data-reveal="0">The venue that<br>never closes.</h1>
+        <p class="below" data-reveal="1">
+          Crypto taught me the part of markets that traditional hours politely hide: liquidity is
+          fragile, funding is a price, and settlement risk is something you design around rather
+          than assume away. I've worked the desk side of it — rotating shifts, 50+ pairs, real
+          order books — and I now model the on-chain side in code.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>01</em> Exchange desk</p>
+      <div class="cols-2">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Liquidity is a service, not a property.</h2>
+          <p class="muted">
+            On the trading desk at LATOKEN I ran 24/7 operations across rotational shifts:
+            order-book depth surveillance, liquidity routing, and quote integrity across connected
+            exchange endpoints. Fifty-plus digital asset pairs, no daylight saving, no closing bell.
+          </p>
+          <p class="muted">
+            The job is mostly vigilance. A markup spread that drifts, a liquidity provider quoting
+            wide, a feed that lags by 800ms — each one is an arbitrage gap for someone and a
+            credibility problem for you. Catching it first is the entire product.
+          </p>
+        </div>
+        <ul class="rule-list" data-reveal="1">
+          <li><span class="k">Book integrity</span><span class="v">Depth surveillance across pairs; liquidity-provider quote monitoring to keep spreads competitive and honest.</span></li>
+          <li><span class="k">Feed discipline</span><span class="v">Real-time pricing feeds and markup spreads watched for staleness, drift and cross-venue divergence.</span></li>
+          <li><span class="k">Reconciliation</span><span class="v">Automated trade-matching verification, deposit/withdrawal flow reconciliation and cross-feed break resolution across exchange nodes.</span></li>
+          <li><span class="k">Continuity</span><span class="v">Rotational shift handovers with written state — because "the book looked fine at 06:00" is not a handover.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>02</em> Treasury &amp; rails</p>
+      <div>
+        <h2 class="display" data-reveal="0">Moving value between two worlds.</h2>
+        <p class="lead" style="margin-top:16px" data-reveal="1">
+          Crypto treasuries live in a permanent exchange-rate problem: value sits in stablecoins,
+          obligations sit in fiat, and the bridge between them is where operational risk actually
+          lives.
+        </p>
+
+        <div class="cols-3" style="margin-top:clamp(26px,4vw,40px)">
+          <div class="panel" data-reveal="2">
+            <span class="panel__label">Store</span>
+            <h3>Stablecoin inventory</h3>
+            <p>Working balances across stablecoin venues, with issuer, chain and redemption profile treated as distinct risks rather than as "cash".</p>
+          </div>
+          <div class="panel" data-reveal="3">
+            <span class="panel__label">Route</span>
+            <h3>Multi-currency movement</h3>
+            <p>Routing across 12+ fiat currencies with SWIFT and SEPA workflows — cut-off times, correspondent behaviour and fees are part of the pricing, not an afterthought.</p>
+          </div>
+          <div class="panel" data-reveal="4">
+            <span class="panel__label">Control</span>
+            <h3>Reconciliation first</h3>
+            <p>Daily position and payment reconciliation, exception-first, so a break surfaces as a task rather than as a month-end surprise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>03</em> On-chain risk</p>
+      <div class="cols-2">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">A lending market you can read in real time.</h2>
+          <p class="muted">
+            What interests me about DeFi lending is that the risk is legible. Reserve utilisation,
+            interest-rate curves, collateral factors and obligation health factors are all on-chain
+            state you can query directly — no waiting for a disclosure, no guessing at a bank's
+            book. Solana's Kamino Lending is the clearest example I've worked with.
+          </p>
+          <p class="muted">
+            So I built the instrument I wanted: <a class="gold" href="projects.html">Kamino Sentinel</a>
+            tracks those reserves and obligations continuously, computes liquidation prices and
+            stress scenarios, and dispatches an alert while there's still time to act. The lesson
+            transfers directly to a traditional risk desk — if a position's failure mode can be
+            computed, it should be computed continuously, not quarterly.
+          </p>
+        </div>
+        <ul class="rule-list" data-reveal="1">
+          <li><span class="k">Health factor</span><span class="v">Collateral value against liquidation threshold — the number that determines whether a position survives a wick.</span></li>
+          <li><span class="k">Utilisation &amp; rates</span><span class="v">Reserve utilisation drives the borrow curve; a kinked curve means liquidity can evaporate exactly when demand peaks.</span></li>
+          <li><span class="k">Liquidation mechanics</span><span class="v">Liquidators are paid to be fast. Solana's block times and Jito-style bundle routing mean the race is measured in milliseconds, not minutes.</span></li>
+          <li><span class="k">Stress testing</span><span class="v">Scenario matrices over collateral and borrow shocks, with an unwind plan costed in advance — including flash-unwind paths that need no fresh capital.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>04</em> Vocabulary</p>
+      <div style="overflow-x:auto">
+        <table class="tbl" data-reveal="0">
+          <thead><tr><th>Term</th><th>Desk translation</th></tr></thead>
+          <tbody>
+            <tr><td>Funding rate</td><td>The price of leverage, paid between perpetual longs and shorts. A funding print is a positioning survey.</td></tr>
+            <tr><td>Basis</td><td>Perpetual or futures versus spot — the cleanest read on who is paying for exposure and in which direction.</td></tr>
+            <tr><td>Depth</td><td>How much size moves the price. Reported volume without depth tells you almost nothing about execution quality.</td></tr>
+            <tr><td>Health factor</td><td>Distance to liquidation. On-chain analogue of a margin call, visible continuously instead of once a day.</td></tr>
+            <tr><td>MEV</td><td>Value extracted from ordering transactions. Ignoring it is a choice; on Solana, bundle routing is how you compete for inclusion.</td></tr>
+            <tr><td>Settlement risk</td><td>Whether the counterparty delivers. Stablecoins reduce transfer latency, not issuer or de-peg risk.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="rail-head">
+      <p class="eyebrow"><em>05</em> Position</p>
+      <div data-reveal="0">
+        <blockquote class="pull">
+          Crypto is genuinely better at settlement, availability and programmability. It is not
+          better at credit assessment, and any structure that pretends otherwise is repackaging
+          the same risk with fewer disclosures.
+        </blockquote>
+        <p class="muted" style="margin-top:22px;max-width:66ch">
+          That's the posture I bring to it: use the rails where they're structurally superior,
+          refuse the parts that are leverage wearing a new vocabulary, and keep the risk maths
+          in code where it can be tested.
+        </p>
+        <p class="mono" style="margin-top:26px;color:var(--faint);font-size:0.74rem;letter-spacing:.08em">
+          Nothing on this page is investment advice or a recommendation of any asset, venue or protocol.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="cta">
+      <div class="cta__grid">
+        <div class="stack" data-reveal="0">
+          <h2 class="display">Digital asset risk or trading operations?</h2>
+          <p class="muted">Desk operations, treasury liquidity and risk telemetry are where I've spent the most hours.</p>
+        </div>
+        <div class="btn-row" data-reveal="1">
+          <a class="btn btn--solid" href="contact.html">Contact</a>
+          <a class="btn" href="projects.html">Kamino Sentinel →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__grid">
+    <p class="foot__meta">
+      © <span id="year">2026</span> Showrojeet Chugh · Chennai, India<br>
+      Markets, systems and digital assets.
+    </p>
+    <p class="foot__meta" style="text-align:right">
+      <a href="index.html">Index</a> · <a href="markets.html">Markets</a> ·
+      <a href="projects.html">Projects</a> · <a href="contact.html">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
